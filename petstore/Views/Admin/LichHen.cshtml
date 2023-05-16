@@ -1,0 +1,90 @@
+﻿@model IEnumerable<petstore.Models.DichVu>
+
+@{
+    ViewBag.Title = "LichHen";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<div class="menu_option-head2">
+    <h3>&nbsp;&nbsp;&nbsp; Danh sách lịch hẹn</h3>
+</div>
+<br />
+<div class="col-lg-12 pl-3">
+    <div class="body fix-width scroll-inner">
+        <table class="table table-striped">
+            <tr>
+                <th>Mã khách hàng</th>
+                <th>
+                    Họ tên
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Số điện thoại
+                </th>
+                <th>
+                    Địa chỉ
+                </th>
+                <th>
+                    Trạng thái
+                </th>
+                <th>
+                    Tên loại dịch vụ
+                </th>
+                <th>
+                    Ngày đặt
+                </th>
+                <th> </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.makh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hoten)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sdt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diachi)
+                    </td>
+                    <td>
+                        @if (item.trangthai == "đang chờ")
+                        {
+                            <div style="color: #007bff;">@item.trangthai</div>
+                        }
+                        else if (item.trangthai == "chờ khách đến")
+                        {
+                            <div style="color: green;">@item.trangthai</div>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tendichvu)
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(@item.ngaydat).ToString("dd/MM/yyyy")
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Chỉnh sửa", "SuaLichHen", new { id = item.iddichvu }) &nbsp;
+                        @Html.ActionLink("Xóa", "XoaLichHen", new { id = item.iddichvu })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div>
+        @Html.ActionLink("Quay lại", "LichHen")
+    </div>
+
+</div>

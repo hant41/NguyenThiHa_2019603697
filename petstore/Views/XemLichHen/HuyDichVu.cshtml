@@ -1,0 +1,87 @@
+﻿@model petstore.Models.DichVu
+
+@{
+    ViewBag.Title = "HuyDichVu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="body p-3 mt-5">
+    <h4>Bạn có muốn hủy dịch vụ này không?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            Trạng thái
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+
+        <dt>
+            Tên dịch vụ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tendichvu)
+        </dd>
+
+        <dt>
+            Ngày đặt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaydat)
+        </dd>
+
+        <dt>
+            Mã khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.makh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Hủy dịch vụ" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

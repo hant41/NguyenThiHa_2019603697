@@ -1,0 +1,74 @@
+﻿@model petstore.Models.KhachHang
+
+@{
+    ViewBag.Title = "XoaQuyen";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 p-3">
+    <h3>Bạn có chắc chắn muốn xóa người dùng này?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dienthoai)
+        </dd>
+
+        <dt>
+            Ngày sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaysinh)
+        </dd>
+
+        <dt>
+            RoleID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color d-flex">
+        <input type="submit" value="Xóa người dùng" class="btn btn-danger" /> 
+        <div>
+            @Html.ActionLink("Quay lại", "ChiaQuyen", null, new { @class = "btn btn-default ml-2" })
+        </div>
+    </div>
+
+    }
+</div>

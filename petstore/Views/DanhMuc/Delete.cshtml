@@ -1,0 +1,36 @@
+﻿@model petstore.Models.DanhMuc
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 p-4">
+
+    <dl class="dl-horizontal">
+        <div class="menu_option-head2">
+            <h3>Bạn có chắc chắn muốn xóa danh mục này?</h3>
+        </div>
+        <hr />
+        <div>
+            <strong>Tên danh mục</strong>
+        </div>
+
+        <div>
+            @Html.DisplayFor(model => model.tendanhmuc)
+        </div>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Xóa danh mục" class="btn btn-danger" />
+        @Html.ActionLink("Quay lại", "Index", "Admin", new { @class = "btn btn-default" })
+    </div>
+    }
+</div>
+
+

@@ -1,0 +1,87 @@
+﻿@model petstore.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 padding-8">
+
+    <dl class="dl-horizontal" style="overflow: hidden;">
+        <div class="menu_option-head2">
+            <h3>Bạn có chắc muốn xóa sản phẩm này?</h3>
+        </div>
+        <hr />
+        <dt>
+            ID danh mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idDanhmuc)
+        </dd>
+
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tensp)
+        </dd>
+
+        <dt>
+            Hình ảnh
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.hinh)" height="200px" />
+        </dd>
+
+        <dt>
+            Giá bán
+        </dt>
+
+        <dd>
+            @String.Format("{0:N0}", Model.giaban)
+        </dd>
+
+        <dt>
+            Ngày cập nhật
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+        <dt>
+            Số lượng tồn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.mota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color d-flex pb-2">
+            <input type="submit" value="Xóa sản phẩm" class="btn btn-danger" />
+            <div>
+                @Html.ActionLink("Quay lại", "QLSanPham", null, new { @class = "btn btn-default ml-2" })
+            </div>
+        </div>
+    }
+</div>
+
+

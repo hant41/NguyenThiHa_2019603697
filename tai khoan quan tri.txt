@@ -1,0 +1,8 @@
+Quyền admin
+tai khoan: admin
+mat khau: 123
+
+Quyền nhân viên
+tai khoan: staff
+mat khau: 123
+
